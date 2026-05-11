@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ระบบบริหารจัดการสหกรณ์ — Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1F3A;
+    --navy-mid: #122749;
+    --navy-light: #1A3560;
+    --gold: #C8A55A;
+    --gold-light: #E2C07E;
+    --gold-pale: #F5EDD6;
+    --teal: #1B8F7A;
+    --teal-light: #23B8A0;
+    --teal-pale: #E0F5F1;
+    --coral: #E05A3A;
+    --coral-pale: #FDF0EC;
+    --slate: #F4F6FA;
+    --white: #FFFFFF;
+    --text-primary: #0B1F3A;
+    --text-secondary: #4A5E7A;
+    --text-muted: #8A9BB0;
+    --border: #DDE4EE;
+    --shadow-sm: 0 2px 8px rgba(11,31,58,0.08);
+    --shadow-md: 0 8px 32px rgba(11,31,58,0.12);
+    --shadow-lg: 0 20px 60px rgba(11,31,58,0.18);
+    --radius: 12px;
+    --radius-lg: 20px;
+
+    /* Mobile-specific spacing tokens */
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --touch-target: 48px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Sarabun', 'IBM Plex Sans Thai', sans-serif;
+    background: var(--slate);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* ─── HEADER ─── */
+  .site-header {
+    background: var(--navy);
+    padding: 3rem 1.25rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(200,165,90,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(200,165,90,0.4);
+    border-radius: 999px;
+    padding: 4px 16px;
+    margin-bottom: 0.875rem;
+  }
+  .header-title {
+    font-size: clamp(22px, 5.5vw, 38px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .header-sub {
+    font-size: clamp(13.5px, 3.5vw, 16px);
+    color: rgba(255,255,255,0.65);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem 5rem;
+  }
+
+  /* ─── PANEL (SECTIONS) ─── */
+  .panel {
+    display: block;
+    margin-bottom: 4rem;
+  }
+  .panel:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-header { margin-bottom: 1.5rem; }
+  .section-tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 0.5rem;
+  }
+  .tag-navy { background: var(--navy); color: var(--gold); }
+  .tag-teal { background: var(--teal-pale); color: var(--teal); }
+  .tag-gold { background: var(--gold-pale); color: #7A5E20; }
+  .section-title { font-size: clamp(18px, 4vw, 24px); font-weight: 700; color: var(--navy); }
+  .section-sub { font-size: 14px; color: var(--text-secondary); margin-top: 4px; line-height: 1.6; }
+
+  /* ─── CORE PACKAGE CARDS ─── */
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 1.75rem;
+  }
+
+  .pkg-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pkg-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .pkg-card:active { transform: scale(0.98); }
+  .pkg-card.featured {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(200,165,90,0.18), var(--shadow-sm);
+  }
+  .pkg-card.featured-teal {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(27,143,122,0.15), var(--shadow-sm);
+  }
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .pkg-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 0.875rem;
+  }
+  .icon-navy { background: var(--navy); }
+  .icon-teal { background: var(--teal-pale); }
+  .icon-gold { background: var(--gold-pale); }
+  .pkg-name { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .pkg-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 1.125rem; line-height: 1.55; }
+  .pkg-price-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 1.125rem; }
+  .pkg-price { font-size: 28px; font-weight: 700; color: var(--navy); }
+  .pkg-price.gold { color: var(--gold); }
+  .pkg-price.teal { color: var(--teal); }
+  .pkg-period { font-size: 13px; color: var(--text-muted); }
+  .pkg-divider { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+  .pkg-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+  .module-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .module-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; }
+  .module-list li .check { color: var(--teal); font-size: 14px; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+  .pkg-btn {
+    width: 100%;
+    margin-top: 1.25rem;
+    padding: 13px;
+    border-radius: 10px;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+    min-height: var(--touch-target);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-navy { background: var(--navy); color: var(--white); }
+  .btn-navy:hover { background: var(--navy-light); }
+  .btn-navy:active { opacity: 0.85; }
+  .btn-teal { background: var(--teal); color: var(--white); }
+  .btn-teal:hover { background: var(--teal-light); }
+  .btn-teal:active { opacity: 0.85; }
+
+  /* ─── BUNDLE BANNER ─── */
+  .bundle-banner {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }
+  .bundle-banner::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,165,90,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .bundle-text .bundle-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .bundle-text .bundle-name { font-size: 17px; font-weight: 700; color: var(--white); }
+  .bundle-text .bundle-desc { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 2px; line-height: 1.55; }
+  .bundle-price-box { text-align: right; }
+  .bundle-price { font-size: 30px; font-weight: 700; color: var(--gold); white-space: nowrap; }
+  .bundle-save { font-size: 12px; color: var(--teal-light); margin-top: 2px; }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: var(--touch-target);
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-gold:hover { background: var(--gold-light); box-shadow: 0 4px 16px rgba(200,165,90,0.4); }
+  .btn-gold:active { opacity: 0.85; transform: scale(0.98); }
+
+  /* ─── ONLINE CARDS ─── */
+  .online-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 1.75rem; }
+  .online-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .online-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .online-card:active { transform: scale(0.98); }
+  .online-card.top { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(27,143,122,0.12); }
+  .online-icon { font-size: 28px; margin-bottom: 0.75rem; }
+  .online-name { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .online-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+  .online-features { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 1rem; }
+  .online-features li { font-size: 12.5px; color: var(--text-secondary); display: flex; gap: 7px; line-height: 1.5; }
+  .online-features li::before { content: '·'; color: var(--teal); font-size: 16px; line-height: 1.2; flex-shrink: 0; }
+  .price-block { background: var(--slate); border-radius: 10px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; }
+  .price-block .lbl { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .price-block .p-mo { font-size: 15px; font-weight: 700; color: var(--teal); }
+  .complexity-row { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+
+  /* ─── ADDON TABLE & SEARCH ─── */
+  .addon-search-bar {
+    display: flex; gap: 8px; align-items: center;
+    margin-bottom: 1.125rem;
+    flex-wrap: wrap;
+  }
+  .search-input {
+    flex: 1;
+    padding: 11px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text-primary);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+    min-height: var(--touch-target);
+  }
+  .search-input:focus { border-color: var(--teal); }
+
+  .addon-table-wrap { background: var(--white); border-radius: var(--radius-lg); border: 1.5px solid var(--border); overflow: hidden; }
+  .addon-row {
+    display: grid;
+    grid-template-columns: 2fr 120px 1fr;
+    align-items: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+    gap: 10px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .addon-row:last-child { border-bottom: none; }
+  .addon-row:hover { background: var(--slate); }
+  .addon-row.hidden { display: none; }
+  .addon-col-header {
+    display: grid;
+    grid-template-columns: 2fr 120px 1fr;
+    padding: 10px 16px;
+    gap: 10px;
+    border-bottom: 1.5px solid var(--border);
+    background: var(--white);
+  }
+  .col-h { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+  .col-h.right { text-align: right; }
+  .addon-name { font-size: 13px; font-weight: 600; color: var(--navy); line-height: 1.4; }
+  .addon-selling { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+  .addon-price-mo { font-size: 13.5px; font-weight: 700; color: var(--teal); text-align: right; }
+  .addon-point { font-size: 11.5px; color: var(--text-muted); }
+
+  /* ─── MOBILE ADDON CARDS ─── */
+  .addon-card {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 16px;
+    display: none;
+    cursor: pointer;
+    transition: background 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .addon-card:active { background: var(--slate); }
+  .addon-card.hidden { display: none !important; }
+  .addon-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .addon-card-prices { display: flex; gap: 16px; align-items: center; }
+  .addon-card-price-item { text-align: right; }
+  .addon-card-price-item .acp-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 2px; }
+  .addon-card-price-item .acp-val { font-size: 14px; font-weight: 700; }
+  .addon-card-price-item .acp-val.teal { color: var(--teal); }
+  .addon-card-footer { display: flex; justify-content: space-between; align-items: center; }
+  .addon-card-arrow { font-size: 13px; color: var(--teal); }
+
+  /* ─── SUMMARY STRIP ─── */
+  .summary-strip {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.125rem 1.25rem;
+    margin-top: 1.125rem;
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .strip-item .strip-label { font-size: 11px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .strip-item .strip-val { font-size: 18px; font-weight: 700; color: var(--navy); }
+  .strip-item .strip-val.teal { color: var(--teal); }
+  .strip-item .strip-val.gold { color: var(--gold); }
+
+  /* ─── SECTION SEPARATOR ─── */
+  .section-separator {
+    border: none;
+    border-top: 2px dashed var(--border);
+    margin: 4rem 0;
+  }
+
+  /* ─── MODAL ─── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(11,31,58,0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 100;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+    overflow-y: auto;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--white);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    width: 100%;
+    max-width: 560px;
+    padding: 1.75rem 1.5rem;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: slideUpMobile 0.28s ease;
+    max-height: 92vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .modal::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 999px;
+    margin: 0 auto 1.25rem;
+  }
+  @keyframes slideUpMobile {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--slate); border: none; border-radius: 50%;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; cursor: pointer; color: var(--text-muted);
+    transition: background 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .modal-close:hover { background: var(--border); }
+  .modal-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+  .modal-title { font-size: 19px; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3; }
+  .modal-desc { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 1.375rem; line-height: 1.65; }
+  .modal-price-row { display: flex; gap: 12px; margin-bottom: 1.375rem; flex-wrap: wrap; }
+  .modal-price-box {
+    flex: 1; min-width: 130px;
+    background: var(--slate);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .modal-price-box .mp-lbl { font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 4px; }
+  .modal-price-box .mp-val { font-size: 21px; font-weight: 700; color: var(--navy); }
+  .modal-price-box .mp-val.teal { color: var(--teal); }
+  .modal-features-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+  .modal-features { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  .modal-features li { font-size: 12.5px; color: var(--text-secondary); display: flex; gap: 6px; line-height: 1.45; }
+  .modal-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+
+  /* ───────────────────────────────────────────
+     MOBILE BREAKPOINTS
+  ─────────────────────────────────────────── */
+  @media (max-width: 767px) {
+    .site-header { padding: 2.5rem 1rem; }
+    .main { padding: 1.5rem 0.875rem 5rem; }
+    .pkg-grid { grid-template-columns: 1fr; gap: 20px; }
+    .pkg-card { padding: 1.375rem; }
+    .pkg-card:first-child { margin-top: 8px; }
+    .online-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    .bundle-banner { flex-direction: column; text-align: center; gap: 1.125rem; }
+    .bundle-price-box { text-align: center; width: 100%; }
+    .btn-gold { width: 100%; justify-content: center; }
+
+    .summary-strip { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .strip-item { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .strip-item .strip-label { margin-bottom: 0; }
+    .strip-item .strip-val { font-size: 17px; }
+
+    .addon-col-header { display: none; }
+    .addon-row { display: none !important; }
+    .addon-card { display: block; }
+    .addon-card.hidden { display: none !important; }
+
+    .modal-overlay { align-items: flex-end; padding: 0; }
+    .modal { border-radius: var(--radius-lg) var(--radius-lg) 0 0; max-height: 88vh; padding: 1.25rem 1.25rem 2rem; }
+    .modal-features { grid-template-columns: 1fr; }
+    .modal-price-row { flex-direction: row; }
+    .modal-price-box { min-width: 120px; }
+
+    .addon-search-bar { flex-direction: column; align-items: stretch; }
+    .search-input { width: 100%; }
+    .section-header { margin-bottom: 1.125rem; }
+    .section-separator { margin: 3rem 0; }
+    .pkg-price, .bundle-price { font-size: 26px; }
+  }
+
+  @media (min-width: 768px) {
+    .addon-card { display: none !important; }
+    .modal-overlay { align-items: center; padding: 1.5rem; }
+    .modal {
+      border-radius: var(--radius-lg);
+      animation: slideUpDesktop 0.25s ease;
+      max-height: 92vh;
+    }
+    .modal::before { display: none; }
+    @keyframes slideUpDesktop {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  @media (max-width: 360px) {
+    .header-title { font-size: 20px; }
+    .pkg-price { font-size: 24px; }
+    .modal { padding: 1rem 1rem 1.75rem; }
+    .modal-price-row { flex-direction: column; }
+    .modal-price-box { min-width: unset; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="header-label">UOB Proposal 2025</div>
+  <h1 class="header-title">ระบบบริหารจัดการสหกรณ์<br>Cooperative Management System</h1>
+  <p class="header-sub">โครงสร้างราคาและแพ็กเกจสำหรับองค์กรสหกรณ์ทุกขนาด</p>
+</header>
+
+<main class="main">
+
+  <section id="panel-core" class="panel">
+    <div class="section-header">
+      <div class="section-tag tag-navy">แพ็กเกจหลัก</div>
+      <div class="section-title">Core Package — ระบบรากฐานสหกรณ์</div>
+      <div class="section-sub">ครอบคลุมทุกโมดูลที่จำเป็นสำหรับการดำเนินงานสหกรณ์ 10 ระบบ พร้อมใช้งานทันที</div>
+    </div>
+
+    <div class="pkg-grid">
+      <div class="pkg-card featured" onclick="openModal('core-basic')">
+        <div class="popular-badge">⭐ แพ็กเกจยอดนิยม</div>
+        <div class="pkg-icon icon-navy">🏛️</div>
+        <div class="pkg-name">Core Package</div>
+        <div class="pkg-desc">ระบบหลักครบครัน 10 โมดูล รองรับการดำเนินงานสหกรณ์ทุกรูปแบบ</div>
+        <div class="pkg-price-row">
+          <div class="pkg-price gold">฿20,000</div>
+          <div class="pkg-period">/ เดือน</div>
+        </div>
+        <hr class="pkg-divider">
+        <div class="pkg-label">โมดูลที่รวมอยู่</div>
+        <ul class="module-list">
+          <li><span class="check">✓</span> ระบบทะเบียนสมาชิก</li>
+          <li><span class="check">✓</span> ระบบหุ้น</li>
+          <li><span class="check">✓</span> ระบบเงินฝาก</li>
+          <li><span class="check">✓</span> ระบบสินเชื่อและค้ำประกัน</li>
+          <li><span class="check">✓</span> ระบบการเงิน</li>
+          <li><span class="check">✓</span> ระบบบัญชี</li>
+          <li><span class="check">✓</span> ระบบประมวลผล/เรียกเก็บ</li>
+          <li><span class="check">✓</span> ระบบสวัสดิการ</li>
+          <li><span class="check">✓</span> ระบบผู้ดูแลระบบ</li>
+          <li><span class="check">✓</span> ระบบปันผล-เฉลี่ยคืน</li>
+        </ul>
+        <button class="pkg-btn btn-navy">ดูรายละเอียด →</button>
+      </div>
+
+      <div class="pkg-card featured-teal" onclick="openModal('online-basic')">
+        <div class="pkg-icon icon-teal">📱</div>
+        <div class="pkg-name">Online Package</div>
+        <div class="pkg-desc">ช่องทางดิจิทัลสำหรับสมาชิก ครบทั้ง Web, Mobile App และ Line</div>
+        <div class="pkg-price-row">
+          <div class="pkg-price teal">฿5,900</div>
+          <div class="pkg-period">/ เดือน</div>
+        </div>
+        <hr class="pkg-divider">
+        <div class="pkg-label">โมดูลที่รวมอยู่</div>
+        <ul class="module-list">
+          <li><span class="check">✓</span> Web Portal (บริการสมาชิก)</li>
+          <li><span class="check">✓</span> Mobile Application (iOS + Android)</li>
+          <li><span class="check">✓</span> Line Notification</li>
+        </ul>
+        <button class="pkg-btn btn-teal">ดูรายละเอียด →</button>
+      </div>
+    </div>
+
+    <div class="bundle-banner">
+      <div class="bundle-text">
+        <div class="bundle-tag">🎁 Bundle Deal — ประหยัดสูงสุด</div>
+        <div class="bundle-name">Core + Online Package</div>
+        <div class="bundle-desc">มูลค่ารวม Core + Online Package (ซื้อแยก) ฿25,900 — ซื้อรวมลดไป 11.6% (ประหยัด ฿3,000 ต่อเดือน)</div>
+      </div>
+      <div class="bundle-price-box">
+        <div class="bundle-price">฿22,900 <span style="font-size:15px;color:rgba(255,255,255,0.5)">/เดือน</span></div>
+        <div class="bundle-save">✓ ประหยัด ฿3,000/เดือน เทียบกับซื้อแยก</div>
+      </div>
+      <button class="btn-gold" onclick="openModal('bundle')">ดูแพ็กเกจนี้</button>
+    </div>
+  </section>
+
+  <hr class="section-separator">
+
+  <section id="panel-online" class="panel">
+    <div class="section-header">
+      <div class="section-tag tag-teal">Digital Member Services</div>
+      <div class="section-title">Online Package — รายระบบ</div>
+      <div class="section-sub">ช่องทางออนไลน์สำหรับสมาชิก วิเคราะห์ความซับซ้อนและราคาแต่ละระบบ</div>
+    </div>
+
+    <div class="online-grid">
+      <div class="online-card top" onclick="openModal('mobile-app')">
+        <div class="online-icon">📱</div>
+        <div class="online-name">16. Mobile Application</div>
+        <div class="online-desc">App บน iOS + Android พัฒนา 2 platform รองรับ Biometric login, Push notification และ QR payment — ต้นทุน Dev สูงที่สุดในกลุ่ม</div>
+        <ul class="online-features">
+          <li>เข้าสู่ระบบ / Face ID / Fingerprint</li>
+          <li>แสดงยอดคงเหลือภาพรวม</li>
+          <li>ยื่นกู้ผ่าน Mobile</li>
+          <li>ดูประวัติรายการ</li>
+          <li>การแจ้งเตือน (Push)</li>
+          <li>สลิปอิเล็กทรอนิกส์ / QR</li>
+          <li>ยื่นสวัสดิการผ่าน Mobile</li>
+        </ul>
+        <div class="price-block">
+          <div>
+            <div class="lbl">ต่อเดือน</div>
+            <div class="p-mo">฿3,350</div>
+          </div>
+        </div>
+        <div class="complexity-row">
+          <span style="font-size:11px;color:var(--text-muted)">คลิกเพื่อดูรายละเอียด</span>
+          <span style="font-size:12px;color:var(--teal)">→</span>
+        </div>
+      </div>
+
+      <div class="online-card top" onclick="openModal('web-portal')">
+        <div class="online-icon">🌐</div>
+        <div class="online-name">15. Web Portal (บริการสมาชิก)</div>
+        <div class="online-desc">Web สำหรับสมาชิก Login ดูข้อมูล ยื่นคำขอ และดาวน์โหลดเอกสารออนไลน์ เชื่อมต่อ Core API แบบ real-time รองรับทุก browser</div>
+        <ul class="online-features">
+          <li>เข้าสู่ระบบสำหรับสมาชิก</li>
+          <li>ตรวจสอบยอดคงเหลือ</li>
+          <li>ดูประวัติรายการ</li>
+          <li>ดูสถานะเงินกู้ / ตารางผ่อน</li>
+          <li>ยื่นกู้ออนไลน์</li>
+          <li>ดาวน์โหลดสลิป / ใบแจ้งยอด</li>
+        </ul>
+        <div class="price-block">
+          <div>
+            <div class="lbl">ต่อเดือน</div>
+            <div class="p-mo">฿2,500</div>
+          </div>
+        </div>
+        <div class="complexity-row">
+          <span style="font-size:11px;color:var(--text-muted)">คลิกเพื่อดูรายละเอียด</span>
+          <span style="font-size:12px;color:var(--teal)">→</span>
+        </div>
+      </div>
+
+      <div class="online-card" onclick="openModal('line-notify')">
+        <div class="online-icon">💬</div>
+        <div class="online-name">17. Line Notification</div>
+        <div class="online-desc">ส่งแจ้งเตือนผ่าน Line OA เมื่อมี event สำคัญ — Dev เร็ว ROI สูง ลด inbound call "ถามยอด" ได้ทันที</div>
+        <ul class="online-features">
+          <li>แจ้งเตือนชำระผ่าน LINE</li>
+          <li>แจ้งรายการผ่าน LINE</li>
+          <li>ส่ง OTPผ่าน LINE</li>
+        </ul>
+        <div class="price-block">
+          <div>
+            <div class="lbl">ต่อเดือน</div>
+            <div class="p-mo">฿750</div>
+          </div>
+        </div>
+        <div class="complexity-row">
+          <span style="font-size:11px;color:var(--text-muted)">คลิกเพื่อดูรายละเอียด</span>
+          <span style="font-size:12px;color:var(--teal)">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-separator">
+
+  <section id="panel-addon" class="panel">
+    <div class="section-header">
+      <div class="section-tag tag-gold">เสริมตามต้องการ</div>
+      <div class="section-title">Add-on — A La Carte</div>
+      <div class="section-sub">เลือกซื้อเพิ่มเติมได้ตามความต้องการ ราคาต่อระบบ · ต่อเดือน ÷ 36 เดือน</div>
+    </div>
+
+    <div class="addon-search-bar">
+      <input class="search-input" type="search" placeholder="ค้นหาโมดูลเสริม..." oninput="filterAddons(this.value)" id="addon-search" autocomplete="off">
+    </div>
+
+    <div class="addon-table-wrap" id="addon-table">
+      <div class="addon-col-header">
+        <div class="col-h">โมดูล</div>
+        <div class="col-h right">ต่อเดือน</div>
+        <div class="col-h">จุดขาย</div>
+      </div>
+
+      <div class="addon-row" data-name="09. ระบบ MIS / รายงานบริหาร" onclick="openModal('mis')">
+        <div><div class="addon-name">09. ระบบ MIS / รายงานบริหาร</div><div class="addon-selling">Dashboard ผู้บริหาร, KPI, drill-down</div></div>
+        <div class="addon-price-mo">฿3,000</div>
+        <div class="addon-point">ตัดสินใจได้ทันที</div>
+      </div>
+      <div class="addon-card" data-name="09. ระบบ MIS / รายงานบริหาร" onclick="openModal('mis')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">09. ระบบ MIS / รายงานบริหาร</div><div class="addon-selling">Dashboard ผู้บริหาร, KPI, drill-down</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿3,000</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="10. ระบบการลงทุน" onclick="openModal('invest')">
+        <div><div class="addon-name">10. ระบบการลงทุน</div><div class="addon-selling">Portfolio, ผลตอบแทน, ความเสี่ยง</div></div>
+        <div class="addon-price-mo">฿2,500</div>
+        <div class="addon-point">บริหารสินทรัพย์อย่างมืออาชีพ</div>
+      </div>
+      <div class="addon-card" data-name="10. ระบบการลงทุน" onclick="openModal('invest')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">10. ระบบการลงทุน</div><div class="addon-selling">Portfolio, ผลตอบแทน, ความเสี่ยง</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿2,500</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="11. ระบบติดตามหนี้" onclick="openModal('debt')">
+        <div><div class="addon-name">11. ระบบติดตามหนี้</div><div class="addon-selling">Alert, SMS/email, รายงาน NPL</div></div>
+        <div class="addon-price-mo">฿1,250</div>
+        <div class="addon-point">ลด NPL อย่างมีระบบ</div>
+      </div>
+      <div class="addon-card" data-name="11. ระบบติดตามหนี้" onclick="openModal('debt')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">11. ระบบติดตามหนี้</div><div class="addon-selling">Alert, SMS/email, รายงาน NPL</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,250</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="13. ระบบรักษาความปลอดภัย" onclick="openModal('security')">
+        <div><div class="addon-name">13. ระบบรักษาความปลอดภัย</div><div class="addon-selling">Role-based access, audit log</div></div>
+        <div class="addon-price-mo">฿850</div>
+        <div class="addon-point">ปกป้องข้อมูลสมาชิก</div>
+      </div>
+      <div class="addon-card" data-name="13. ระบบรักษาความปลอดภัย" onclick="openModal('security')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">13. ระบบรักษาความปลอดภัย</div><div class="addon-selling">Role-based access, audit log</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿850</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="14. ระบบสำรองข้อมูล" onclick="openModal('backup')">
+        <div><div class="addon-name">14. ระบบสำรองข้อมูล</div><div class="addon-selling">Auto-backup, restore, scheduling</div></div>
+        <div class="addon-price-mo">฿750</div>
+        <div class="addon-point">ไม่สูญเสียข้อมูล</div>
+      </div>
+      <div class="addon-card" data-name="14. ระบบสำรองข้อมูล" onclick="openModal('backup')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">14. ระบบสำรองข้อมูล</div><div class="addon-selling">Auto-backup, restore, scheduling</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿750</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="18. Pay-in Slip" onclick="openModal('payin')">
+        <div><div class="addon-name">18. Pay-in Slip</div><div class="addon-selling">QR ชำระเงิน, reconcile อัตโนมัติ</div></div>
+        <div class="addon-price-mo">฿750</div>
+        <div class="addon-point">ชำระสะดวก ตัดงาน Manual</div>
+      </div>
+      <div class="addon-card" data-name="18. Pay-in Slip" onclick="openModal('payin')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">18. Pay-in Slip</div><div class="addon-selling">QR ชำระเงิน, reconcile อัตโนมัติ</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿750</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="19. ระบบเชื่อมโยงข้อมูล" onclick="openModal('integration')">
+        <div><div class="addon-name">19. ระบบเชื่อมโยงข้อมูล</div><div class="addon-selling">API / Data Integration ภายนอก</div></div>
+        <div class="addon-price-mo">฿2,000</div>
+        <div class="addon-point">เชื่อม GFMIS, ธนาคาร</div>
+      </div>
+      <div class="addon-card" data-name="19. ระบบเชื่อมโยงข้อมูล" onclick="openModal('integration')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">19. ระบบเชื่อมโยงข้อมูล</div><div class="addon-selling">API / Data Integration ภายนอก</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿2,000</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="20. ระบบสารบรรณ / คลังเอกสาร" onclick="openModal('doc')">
+        <div><div class="addon-name">20. ระบบสารบรรณ / คลังเอกสาร</div><div class="addon-selling">e-Document, ค้นหา,หมวดหมู่</div></div>
+        <div class="addon-price-mo">฿1,200</div>
+        <div class="addon-point">Paperless สมบูรณ์</div>
+      </div>
+      <div class="addon-card" data-name="20. ระบบสารบรรณ / คลังเอกสาร" onclick="openModal('doc')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">20. ระบบสารบรรณ / คลังเอกสาร</div><div class="addon-selling">e-Document, ค้นหา, หมวดหมู่</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,200</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="21. ระบบบริหารงานบุคคล" onclick="openModal('hr')">
+        <div><div class="addon-name">21. ระบบบริหารงานบุคคล</div><div class="addon-selling">HR, เงินเดือน, ประวัติพนักงาน</div></div>
+        <div class="addon-price-mo">฿1,500</div>
+        <div class="addon-point">ครบ HR ในที่เดียว</div>
+      </div>
+      <div class="addon-card" data-name="21. ระบบบริหารงานบุคคล" onclick="openModal('hr')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">21. ระบบบริหารงานบุคคล</div><div class="addon-selling">HR, เงินเดือน, ประวัติพนักงาน</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,500</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="22. ระบบพัสดุ / สินทรัพย์" onclick="openModal('asset')">
+        <div><div class="addon-name">22. ระบบพัสดุ / สินทรัพย์</div><div class="addon-selling">ทะเบียนพัสดุ, ตัดจำหน่าย</div></div>
+        <div class="addon-price-mo">฿1,000</div>
+        <div class="addon-point">ควบคุมสินทรัพย์ครบ</div>
+      </div>
+      <div class="addon-card" data-name="22. ระบบพัสดุ / สินทรัพย์" onclick="openModal('asset')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">22. ระบบพัสดุ / สินทรัพย์</div><div class="addon-selling">ทะเบียนพัสดุ, ตัดจำหน่าย</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,000</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="23. ระบบงบประมาณ" onclick="openModal('budget')">
+        <div><div class="addon-name">23. ระบบงบประมาณ</div><div class="addon-selling">วางแผน, ควบคุม, เปรียบเทียบ</div></div>
+        <div class="addon-price-mo">฿1,350</div>
+        <div class="addon-point">ควบคุมค่าใช้จ่าย</div>
+      </div>
+      <div class="addon-card" data-name="23. ระบบงบประมาณ" onclick="openModal('budget')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">23. ระบบงบประมาณ</div><div class="addon-selling">วางแผน, ควบคุม, เปรียบเทียบ</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,350</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="24. ระบบอนุมัติ (Workflow)" onclick="openModal('workflow')">
+        <div><div class="addon-name">24. ระบบอนุมัติ (Workflow)</div><div class="addon-selling">Paperless approval, หลายระดับ</div></div>
+        <div class="addon-price-mo">฿1,700</div>
+        <div class="addon-point">ลดขั้นตอน 80%</div>
+      </div>
+      <div class="addon-card" data-name="24. ระบบอนุมัติ (Workflow)" onclick="openModal('workflow')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">24. ระบบอนุมัติ (Workflow)</div><div class="addon-selling">Paperless approval, หลายระดับ</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,700</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="25. ระบบบริหารงานคดี" onclick="openModal('legal')">
+        <div><div class="addon-name">25. ระบบบริหารงานคดี</div><div class="addon-selling">ติดตามคดี, นัดหมาย, เอกสาร</div></div>
+        <div class="addon-price-mo">฿1,350</div>
+        <div class="addon-point">ลดความเสี่ยงทางกฎหมาย</div>
+      </div>
+      <div class="addon-card" data-name="25. ระบบบริหารงานคดี" onclick="openModal('legal')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">25. ระบบบริหารงานคดี</div><div class="addon-selling">ติดตามคดี, นัดหมาย, เอกสาร</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,350</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="26. ระบบฌาปนกิจ" onclick="openModal('funeral')">
+        <div><div class="addon-name">26. ระบบฌาปนกิจ</div><div class="addon-selling">บริหารสมาชิก, เรียกเก็บ</div></div>
+        <div class="addon-price-mo">฿1,100</div>
+        <div class="addon-point">สวัสดิการครบวงจร</div>
+      </div>
+      <div class="addon-card" data-name="26. ระบบฌาปนกิจ" onclick="openModal('funeral')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">26. ระบบฌาปนกิจ</div><div class="addon-selling">บริหารสมาชิก, เรียกเก็บ</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,100</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="27. ระบบจัดการประชุม" onclick="openModal('meeting')">
+        <div><div class="addon-name">27. ระบบจัดการประชุม</div><div class="addon-selling">วาระ, มติ, บันทึกการประชุม</div></div>
+        <div class="addon-price-mo">฿850</div>
+        <div class="addon-point">ประชุมออนไลน์ได้ทันที</div>
+      </div>
+      <div class="addon-card" data-name="27. ระบบจัดการประชุม" onclick="openModal('meeting')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">27. ระบบจัดการประชุม</div><div class="addon-selling">วาระ, มติ, บันทึกการประชุม</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿850</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="28. ระบบจองคิว" onclick="openModal('queue')">
+        <div><div class="addon-name">28. ระบบจองคิว</div><div class="addon-selling">Online booking, แจ้งเตือน</div></div>
+        <div class="addon-price-mo">฿670</div>
+        <div class="addon-point">ลดเวลารอคิว</div>
+      </div>
+      <div class="addon-card" data-name="28. ระบบจองคิว" onclick="openModal('queue')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">28. ระบบจองคิว</div><div class="addon-selling">Online booking, แจ้งเตือน</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿670</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="29. ระบบเจ้าหน้าที่" onclick="openModal('staff')">
+        <div><div class="addon-name">29. ระบบเจ้าหน้าที่</div><div class="addon-selling">บัญชีผู้ใช้, สิทธิ์, shift</div></div>
+        <div class="addon-price-mo">฿670</div>
+        <div class="addon-point">จัดการทีมงานครบ</div>
+      </div>
+      <div class="addon-card" data-name="29. ระบบเจ้าหน้าที่" onclick="openModal('staff')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">29. ระบบเจ้าหน้าที่</div><div class="addon-selling">บัญชีผู้ใช้, สิทธิ์, shift</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿670</div></div>
+          </div>
+          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+        </div>
+      </div>
+
+    </div><div class="summary-strip">
+      <div class="strip-item">
+        <div class="strip-label">จำนวน Add-on ทั้งหมด</div>
+        <div class="strip-val">17 ระบบ</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-label">ราคาต่ำสุด</div>
+        <div class="strip-val teal">฿670 / เดือน</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-label">ราคาสูงสุด</div>
+        <div class="strip-val gold">฿3,000 / เดือน</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-box">
+    <button class="modal-close" onclick="closeModalDirect()" aria-label="ปิด">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+  /* ─── Modal Data ─── */
+  const modals = {
+    'core-basic': {
+      tag: 'Core Package',
+      title: 'ระบบหลักสหกรณ์ — 10 โมดูล',
+      desc: 'รากฐานสำคัญที่สหกรณ์ทุกแห่งต้องมี ครอบคลุมการดำเนินงานหลักครบถ้วน ตั้งแต่ทะเบียนสมาชิก หุ้น เงินฝาก สินเชื่อ ไปจนถึงบัญชีและปันผล',
+      monthly: '฿20,000',
+      features: ['ทะเบียนสมาชิก + อนุมัติ','ระบบหุ้น + ปันผล','เงินฝากหลายประเภท','สินเชื่อ + ค้ำประกัน','ระบบการเงิน','บัญชีครบวงจร','ประมวลผลหักเงินเดือน','สวัสดิการสมาชิก','ผู้ดูแลระบบ + สิทธิ์','ปันผล-เฉลี่ยคืน']
+    },
+    'online-basic': {
+      tag: 'Online Package',
+      title: 'บริการสมาชิก Digital — 3 ช่องทาง',
+      desc: 'Digital Front-end สำหรับสมาชิก เชื่อมต่อ Core Backend real-time ครบทั้ง Web Portal, Mobile App และ Line Notification',
+      monthly: '฿5,900',
+      features: ['Web Portal — ดูข้อมูล/ยื่นคำขอ','Mobile App iOS + Android','Biometric Login','Push Notification','Line OA — แจ้งเตือนอัตโนมัติ','QR Code Payment','e-Statement ดาวน์โหลดได้','ยื่นกู้/สวัสดิการออนไลน์']
+    },
+    'bundle': {
+      tag: 'Bundle Deal',
+      title: 'Core + Online — ประหยัด 11.6%',
+      desc: 'แพ็กเกจรวมที่คุ้มค่าที่สุด รวมทุกโมดูลใน Core (10 ระบบ) + Online ครบทั้ง 3 ช่องทาง ประหยัด ฿3,000 ต่อเดือน เทียบกับซื้อแยก (มูลค่ารวม ฿25,900)',
+      monthly: '฿22,900',
+      features: ['ครบทุกโมดูลใน Core Package','Web Portal สมาชิก','Mobile Application iOS+Android','Line Notification','ประหยัด ฿3,000/เดือน','Support & Maintenance รวม','ติดตั้งและ Setup ครบ','SLA Response Time 4 ชั่วโมง']
+    },
+    'mobile-app': {
+      tag: '16. Mobile Application',
+      title: 'Mobile Application',
+      desc: 'App บน iOS + Android พัฒนาด้วย Cross-platform framework รองรับ Biometric login, Push notification และ QR payment',
+      monthly: '฿3,350',
+      features: ['เข้าสู่ระบบ / Face ID / Fingerprint', 'แสดงยอดคงเหลือภาพรวม', 'ยื่นกู้ผ่าน Mobile', 'ดูประวัติรายการ', 'การแจ้งเตือน (Push)', 'สลิปอิเล็กทรอนิกส์ / QR', 'ยื่นสวัสดิการผ่าน Mobile']
+    },
+    'web-portal': {
+      tag: '15. Web Portal',
+      title: 'Member Web Portal',
+      desc: 'เว็บ Self-service สำหรับสมาชิก Login ด้วย OTP, ดูข้อมูล real-time, ยื่นคำขอออนไลน์ และดาวน์โหลดเอกสาร — ลดภาระ Staff ได้มากกว่า 60%',
+      monthly: '฿2,500',
+      features: ['เข้าสู่ระบบสำหรับสมาชิก', 'ตรวจสอบยอดคงเหลือ', 'ดูประวัติรายการ', 'ดูสถานะเงินกู้ / ตารางผ่อน', 'ยื่นกู้ออนไลน์', 'ดาวน์โหลดสลิป / ใบแจ้งยอด']
+    },
+    'line-notify': {
+      tag: '17. Line Notification',
+      title: 'Line Notification',
+      desc: 'ระบบแจ้งเตือนผ่าน Line OA อัตโนมัติ — Dev เร็ว ROI สูง ลด inbound call "ถามยอดชำระ" ได้ทันที เหมาะเป็น Quick Win สำหรับสหกรณ์',
+      monthly: '฿750',
+      features: ['แจ้งเตือนชำระผ่าน LINE', 'แจ้งรายการผ่าน LINE', 'ส่ง OTP ผ่าน LINE']
+    },
+    'mis': {
+      tag: '09. Add-on',
+      title: 'ระบบ MIS / รายงานบริหาร',
+      desc: 'Executive Dashboard สรุปภาพรวมสหกรณ์ วิเคราะห์ Portfolio เงินกู้และเงินฝาก รายงานสถิติสมาชิก ส่งออก Excel/PDF ได้ทันที',
+      monthly: '฿3,000',
+      features: ['Dashboard สรุปภาพรวม', 'รายงานสถิติสมาชิก', 'วิเคราะห์พอร์ตเงินกู้', 'วิเคราะห์พอร์ตเงินฝาก', 'ส่งออก Excel/PDF']
+    },
+    'invest': {
+      tag: '10. Add-on',
+      title: 'ระบบการลงทุน',
+      desc: 'บริหารพอร์ตการลงทุนของสหกรณ์ บันทึกรายการ คำนวณผลตอบแทน ติดตาม Portfolio รายงานผลตอบแทนรายปี',
+      monthly: '฿2,500',
+      features: ['กำหนดประเภทการลงทุน', 'บันทึกรายการลงทุน', 'คำนวณผลตอบแทน', 'ติดตามพอร์ตการลงทุน', 'รายงานการลงทุน']
+    },
+    'debt': {
+      tag: '11. Add-on',
+      title: 'ระบบติดตามหนี้',
+      desc: 'ระบบ Alert อัตโนมัติสำหรับสมาชิกที่ค้างชำระ ส่ง SMS/Email แจ้งเตือน จัดทำรายงาน NPL และติดตามหนี้อย่างเป็นระบบ ลดหนี้เสียอย่างมีประสิทธิภาพ',
+      monthly: '฿1,250',
+      features: ['ติดตามหนี้ค้างชำระ', 'กำหนดตารางและผู้ติดตามหนี้', 'พิมพ์หนังสือบอกกล่าว', 'ปรับโครงสร้างหนี้', 'บันทึกประวัติการติดตาม']
+    },
+    'security': {
+      tag: '13. Add-on',
+      title: 'ระบบรักษาความปลอดภัย',
+      desc: 'ควบคุมการเข้าถึงระบบด้วย Role-based Access Control บันทึก Audit Log ทุก Action และตรวจจับพฤติกรรมผิดปกติ ปกป้องข้อมูลสมาชิกอย่างรัดกุม',
+      monthly: '฿850',
+      features: ['นโยบายรหัสผ่าน', 'จำกัดการล็อกอิน', 'หมดเวลาการใช้งาน', 'ยืนยันตัวตน 2 ขั้น (OTP)']
+    },
+    'backup': {
+      tag: '14. Add-on',
+      title: 'ระบบสำรองข้อมูล',
+      desc: 'สำรองข้อมูลอัตโนมัติตามกำหนดเวลา จัดเก็บไว้หลายที่ทั้ง Local และ Cloud กู้คืนข้อมูลได้รวดเร็ว ไม่ให้สูญเสียข้อมูลสำคัญของสหกรณ์แม้แต่รายการเดียว',
+      monthly: '฿750',
+      features: ['สำรองข้อมูลอัตโนมัติ', 'สำรองข้อมูลด้วยตนเอง', 'กู้คืนข้อมูล']
+    },
+    'payin': {
+      tag: '18. Add-on',
+      title: 'Pay-in Slip',
+      desc: 'รับชำระเงินผ่าน QR Code PromptPay สร้างสลิปอัตโนมัติ และ Reconcile กับระบบบัญชีโดยอัตโนมัติ ลดงาน Manual ของเจ้าหน้าที่การเงิน',
+      monthly: '฿750',
+      features: ['สร้าง Pay-in slip', 'พิมพ์ใบ Pay-in']
+    },
+    'integration': {
+      tag: '19. Add-on',
+      title: 'ระบบเชื่อมโยงข้อมูล',
+      desc: 'เชื่อมต่อระบบภายนอกผ่าน API — GFMIS สำหรับราชการ, รับ/ส่งไฟล์ธนาคาร เหมาะสำหรับหน่วยงานภาครัฐ',
+      monthly: '฿2,000',
+      features: ['เชื่อมต่อ GFMIS', 'รับ/ส่งไฟล์ธนาคาร']
+    },
+    'doc': {
+      tag: '20. Add-on',
+      title: 'ระบบสารบรรณ / คลังเอกสาร',
+      desc: 'จัดเก็บและบริหารเอกสารราชการ หนังสือเข้า-ออก สัญญาต่างๆ แบบดิจิทัล ค้นหาง่าย จัดหมวดหมู่เป็นระเบียบ รองรับ Paperless Organization เต็มรูปแบบ',
+      monthly: '฿1,200',
+      features: ['จัดเก็บ/จำแนกประเภทเอกสาร', 'ค้นหาเอกสาร', 'เวียนเอกสาร']
+    },
+    'hr': {
+      tag: '21. Add-on',
+      title: 'ระบบบริหารงานบุคคล',
+      desc: 'จัดการข้อมูลพนักงานและเจ้าหน้าที่สหกรณ์ครบวงจร ตั้งแต่ประวัติส่วนตัว สัญญาจ้าง เงินเดือน ไปจนถึงการประเมินผลและสวัสดิการพนักงาน',
+      monthly: '฿1,500',
+      features: ['ประวัติพนักงาน', 'ตำแหน่ง / ระดับ', 'การลา']
+    },
+    'asset': {
+      tag: '22. Add-on',
+      title: 'ระบบพัสดุ / สินทรัพย์',
+      desc: 'บันทึกและติดตามสินทรัพย์ถาวรและพัสดุของสหกรณ์ คำนวณค่าเสื่อมราคา บันทึกการซ่อมบำรุง และดำเนินการตัดจำหน่ายตามระเบียบ',
+      monthly: '฿1,000',
+      features: ['ใบขอซื้อ / ใบสั่งซื้อ', 'ทะเบียนสินทรัพย์', 'ค่าเสื่อมราคา']
+    },
+    'budget': {
+      tag: '23. Add-on',
+      title: 'ระบบงบประมาณ',
+      desc: 'วางแผนและควบคุมงบประมาณประจำปีของสหกรณ์ เปรียบเทียบงบประมาณกับค่าใช้จ่ายจริง แจ้งเตือนเมื่อใกล้เกินงบ ช่วยให้ผู้บริหารตัดสินใจได้แม่นยำ',
+      monthly: '฿1,350',
+      features: ['วางแผนงบประมาณประจำปี', 'จัดสรรงบประมาณตามหน่วยงาน', 'ติดตามงบประมาณเทียบผลจริง']
+    },
+    'workflow': {
+      tag: '24. Add-on',
+      title: 'ระบบอนุมัติ (Workflow)',
+      desc: 'ระบบ Paperless approval หลายระดับ — ผู้ยื่น → หัวหน้างาน → ผู้บริหาร → คณะกรรมการ แจ้งเตือนผ่าน Email/Line ทุกขั้นตอน',
+      monthly: '฿1,700',
+      features: ['อนุมัติหลายระดับ', 'แจ้งเตือนและติดตามการอนุมัติ']
+    },
+    'legal': {
+      tag: '25. Add-on',
+      title: 'ระบบบริหารงานคดี',
+      desc: 'ติดตามและบริหารจัดการคดีความที่สหกรณ์เกี่ยวข้อง บันทึกรายละเอียดคดี กำหนดนัดหมายศาล จัดเก็บเอกสารสำคัญ ลดความเสี่ยงด้านกฎหมาย',
+      monthly: '฿1,350',
+      features: ['ลงทะเบียนและติดตามคดี', 'จัดการเอกสารคดี', 'ติดตามการบังคับคดี']
+    },
+    'funeral': {
+      tag: '26. Add-on',
+      title: 'ระบบฌาปนกิจ',
+      desc: 'บริหารจัดการสมาคมฌาปนกิจสงเคราะห์ที่เชื่อมต่อกับสหกรณ์ จัดการทะเบียนสมาชิก เรียกเก็บเงินสงเคราะห์ และดำเนินการจ่ายเงินสงเคราะห์เมื่อสมาชิกเสียชีวิต',
+      monthly: '฿1,100',
+      features: ['ทะเบียนสมาชิกฌาปนกิจ', 'เก็บเงินสงเคราะห์ / เบิกเงินเสียชีวิต']
+    },
+    'meeting': {
+      tag: '27. Add-on',
+      title: 'ระบบจัดการประชุม',
+      desc: 'บริหารการประชุมของสหกรณ์ตั้งแต่ต้นจนจบ นัดหมาย จัดวาระ บันทึกมติ และติดตามการดำเนินการตามมติ รองรับประชุมออนไลน์และออฟไลน์',
+      monthly: '฿850',
+      features: ['จัดการวาระการประชุม', 'บันทึกและติดตามมติที่ประชุม']
+    },
+    'queue': {
+      tag: '28. Add-on',
+      title: 'ระบบจองคิว',
+      desc: 'สมาชิกจองคิวรับบริการล่วงหน้าผ่านออนไลน์ ลดเวลารอ ระบบแจ้งเตือนก่อนถึงคิว เจ้าหน้าที่เรียกคิวผ่านหน้าจอ เพิ่มประสบการณ์การรับบริการที่ดีขึ้น',
+      monthly: '฿670',
+      features: ['จองคิว / นัดหมายออนไลน์', 'แจ้งสถานะคิว']
+    },
+    'staff': {
+      tag: '29. Add-on',
+      title: 'ระบบเจ้าหน้าที่',
+      desc: 'จัดการบัญชีผู้ใช้งานระบบสำหรับเจ้าหน้าที่ทุกระดับ กำหนดสิทธิ์การเข้าถึง บันทึก Shift การทำงาน และติดตามประสิทธิภาพการทำงานของทีม',
+      monthly: '฿670',
+      features: ['ประวัติเจ้าหน้าที่ / สิทธิ์เข้าใช้', 'มอบหมายงาน']
+    }
+  };
+
+  /* ─── Modal Functions ─── */
+  function openModal(key) {
+    const d = modals[key];
+    if (!d) return;
+    const priceRows = `<div class="modal-price-box" style="flex:1"><div class="mp-lbl">ราคา / เดือน</div><div class="mp-val teal">${d.monthly}</div></div>`;
+    const featureItems = d.features.map(f => `<li>${f}</li>`).join('');
+    document.getElementById('modal-content').innerHTML = `
+      <div class="modal-tag">${d.tag}</div>
+      <div class="modal-title">${d.title}</div>
+      <div class="modal-desc">${d.desc}</div>
+      <div class="modal-price-row">${priceRows}</div>
+      <div class="modal-features-title">ฟีเจอร์หลัก</div>
+      <ul class="modal-features">${featureItems}</ul>`;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+  }
+  function closeModalDirect() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+
+  /* ─── Add-on filtering ─── */
+  function filterAddons(query) {
+    const q = query.toLowerCase();
+    const items = document.querySelectorAll('#addon-table .addon-row, #addon-table .addon-card');
+    items.forEach(item => {
+      const name = item.dataset.name || '';
+      const hide = q && !name.toLowerCase().includes(q);
+      item.classList.toggle('hidden', hide);
+    });
+  }
+</script>
+</body>
+</html>
