@@ -528,15 +528,15 @@
     <div class="section-header">
       <div class="section-tag tag-navy">แพ็กเกจหลัก</div>
       <div class="section-title">Core Package — ระบบรากฐานสหกรณ์</div>
-      <div class="section-sub">ครอบคลุมทุกโมดูลที่จำเป็นสำหรับการดำเนินงานสหกรณ์ 10 ระบบ พร้อมใช้งานทันที</div>
+      <div class="section-sub">ครอบคลุมทุกโมดูลที่จำเป็นสำหรับการดำเนินงานสหกรณ์ 8 ระบบ / 8 โมดูลหลัก พร้อมใช้งานทันที</div>
     </div>
 
     <div class="pkg-grid">
-      <div class="pkg-card featured" onclick="openModal('core-basic')">
+      <div class="pkg-card featured" style="cursor:default;">
         <div class="popular-badge">⭐ แพ็กเกจยอดนิยม</div>
         <div class="pkg-icon icon-navy">🏛️</div>
         <div class="pkg-name">Core Package</div>
-        <div class="pkg-desc">ระบบหลักครบครัน 10 โมดูล รองรับการดำเนินงานสหกรณ์ทุกรูปแบบ</div>
+        <div class="pkg-desc">ระบบหลักครบครัน 8 โมดูลหลัก รองรับการดำเนินงานสหกรณ์ทุกรูปแบบ</div>
         <div class="pkg-price-row">
           <div class="pkg-price gold">฿20,000</div>
           <div class="pkg-period">/ เดือน</div>
@@ -544,21 +544,18 @@
         <hr class="pkg-divider">
         <div class="pkg-label">โมดูลที่รวมอยู่</div>
         <ul class="module-list">
-          <li><span class="check">✓</span> ระบบทะเบียนสมาชิก</li>
-          <li><span class="check">✓</span> ระบบหุ้น</li>
+          <li><span class="check">✓</span> ระบบทะเบียนสมาชิกและหุ้น</li>
           <li><span class="check">✓</span> ระบบเงินฝาก</li>
-          <li><span class="check">✓</span> ระบบสินเชื่อและค้ำประกัน</li>
           <li><span class="check">✓</span> ระบบการเงิน</li>
           <li><span class="check">✓</span> ระบบบัญชี</li>
-          <li><span class="check">✓</span> ระบบประมวลผล/เรียกเก็บ</li>
-          <li><span class="check">✓</span> ระบบสวัสดิการ</li>
-          <li><span class="check">✓</span> ระบบผู้ดูแลระบบ</li>
+          <li><span class="check">✓</span> ระบบสินเชื่อ</li>
+          <li><span class="check">✓</span> ระบบประมวลผลเรียกเก็บ</li>
           <li><span class="check">✓</span> ระบบปันผล-เฉลี่ยคืน</li>
+          <li><span class="check">✓</span> ระบบผู้ดูแลระบบ</li>
         </ul>
-        <button class="pkg-btn btn-navy">ดูรายละเอียด →</button>
       </div>
 
-      <div class="pkg-card featured-teal" onclick="openModal('online-basic')">
+      <div class="pkg-card featured-teal" style="cursor:default;">
         <div class="pkg-icon icon-teal">📱</div>
         <div class="pkg-name">Online Package</div>
         <div class="pkg-desc">ช่องทางดิจิทัลสำหรับสมาชิก ครบทั้ง Web, Mobile App และ Line</div>
@@ -573,102 +570,6 @@
           <li><span class="check">✓</span> Mobile Application (iOS + Android)</li>
           <li><span class="check">✓</span> Line Notification</li>
         </ul>
-        <button class="pkg-btn btn-teal">ดูรายละเอียด →</button>
-      </div>
-    </div>
-
-    <div class="bundle-banner">
-      <div class="bundle-text">
-        <div class="bundle-tag">🎁 Bundle Deal — ประหยัดสูงสุด</div>
-        <div class="bundle-name">Core + Online Package</div>
-        <div class="bundle-desc">มูลค่ารวม Core + Online Package (ซื้อแยก) ฿25,900 — ซื้อรวมลดไป 11.6% (ประหยัด ฿3,000 ต่อเดือน)</div>
-      </div>
-      <div class="bundle-price-box">
-        <div class="bundle-price">฿22,900 <span style="font-size:15px;color:rgba(255,255,255,0.5)">/เดือน</span></div>
-        <div class="bundle-save">✓ ประหยัด ฿3,000/เดือน เทียบกับซื้อแยก</div>
-      </div>
-      <button class="btn-gold" onclick="openModal('bundle')">ดูแพ็กเกจนี้</button>
-    </div>
-  </section>
-
-  <hr class="section-separator">
-
-  <section id="panel-online" class="panel">
-    <div class="section-header">
-      <div class="section-tag tag-teal">Digital Member Services</div>
-      <div class="section-title">Online Package — รายระบบ</div>
-      <div class="section-sub">ช่องทางออนไลน์สำหรับสมาชิก วิเคราะห์ความซับซ้อนและราคาแต่ละระบบ</div>
-    </div>
-
-    <div class="online-grid">
-      <div class="online-card top" onclick="openModal('mobile-app')">
-        <div class="online-icon">📱</div>
-        <div class="online-name">16. Mobile Application</div>
-        <div class="online-desc">App บน iOS + Android พัฒนา 2 platform รองรับ Biometric login, Push notification และ QR payment — ต้นทุน Dev สูงที่สุดในกลุ่ม</div>
-        <ul class="online-features">
-          <li>เข้าสู่ระบบ / Face ID / Fingerprint</li>
-          <li>แสดงยอดคงเหลือภาพรวม</li>
-          <li>ยื่นกู้ผ่าน Mobile</li>
-          <li>ดูประวัติรายการ</li>
-          <li>การแจ้งเตือน (Push)</li>
-          <li>สลิปอิเล็กทรอนิกส์ / QR</li>
-          <li>ยื่นสวัสดิการผ่าน Mobile</li>
-        </ul>
-        <div class="price-block">
-          <div>
-            <div class="lbl">ต่อเดือน</div>
-            <div class="p-mo">฿3,350</div>
-          </div>
-        </div>
-        <div class="complexity-row">
-          <span style="font-size:11px;color:var(--text-muted)">คลิกเพื่อดูรายละเอียด</span>
-          <span style="font-size:12px;color:var(--teal)">→</span>
-        </div>
-      </div>
-
-      <div class="online-card top" onclick="openModal('web-portal')">
-        <div class="online-icon">🌐</div>
-        <div class="online-name">15. Web Portal (บริการสมาชิก)</div>
-        <div class="online-desc">Web สำหรับสมาชิก Login ดูข้อมูล ยื่นคำขอ และดาวน์โหลดเอกสารออนไลน์ เชื่อมต่อ Core API แบบ real-time รองรับทุก browser</div>
-        <ul class="online-features">
-          <li>เข้าสู่ระบบสำหรับสมาชิก</li>
-          <li>ตรวจสอบยอดคงเหลือ</li>
-          <li>ดูประวัติรายการ</li>
-          <li>ดูสถานะเงินกู้ / ตารางผ่อน</li>
-          <li>ยื่นกู้ออนไลน์</li>
-          <li>ดาวน์โหลดสลิป / ใบแจ้งยอด</li>
-        </ul>
-        <div class="price-block">
-          <div>
-            <div class="lbl">ต่อเดือน</div>
-            <div class="p-mo">฿2,500</div>
-          </div>
-        </div>
-        <div class="complexity-row">
-          <span style="font-size:11px;color:var(--text-muted)">คลิกเพื่อดูรายละเอียด</span>
-          <span style="font-size:12px;color:var(--teal)">→</span>
-        </div>
-      </div>
-
-      <div class="online-card" onclick="openModal('line-notify')">
-        <div class="online-icon">💬</div>
-        <div class="online-name">17. Line Notification</div>
-        <div class="online-desc">ส่งแจ้งเตือนผ่าน Line OA เมื่อมี event สำคัญ — Dev เร็ว ROI สูง ลด inbound call "ถามยอด" ได้ทันที</div>
-        <ul class="online-features">
-          <li>แจ้งเตือนชำระผ่าน LINE</li>
-          <li>แจ้งรายการผ่าน LINE</li>
-          <li>ส่ง OTPผ่าน LINE</li>
-        </ul>
-        <div class="price-block">
-          <div>
-            <div class="lbl">ต่อเดือน</div>
-            <div class="p-mo">฿750</div>
-          </div>
-        </div>
-        <div class="complexity-row">
-          <span style="font-size:11px;color:var(--text-muted)">คลิกเพื่อดูรายละเอียด</span>
-          <span style="font-size:12px;color:var(--teal)">→</span>
-        </div>
       </div>
     </div>
   </section>
@@ -693,9 +594,26 @@
         <div class="col-h">จุดขาย</div>
       </div>
 
+      <div class="addon-row" data-name="08. ระบบสวัสดิการ" onclick="openModal('welfare')">
+        <div><div class="addon-name">08. ระบบสวัสดิการ</div><div class="addon-selling">กำหนดสวัสดิการ, อนุมัติ, จ่ายเงิน</div></div>
+        <div class="addon-price-mo">฿3,900</div>
+        <div class="addon-point">ดูแลสมาชิกครบวงจร</div>
+      </div>
+      <div class="addon-card" data-name="08. ระบบสวัสดิการ" onclick="openModal('welfare')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">08. ระบบสวัสดิการ</div><div class="addon-selling">กำหนดสวัสดิการ, อนุมัติ, จ่ายเงิน</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿3,900</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
       <div class="addon-row" data-name="09. ระบบ MIS / รายงานบริหาร" onclick="openModal('mis')">
         <div><div class="addon-name">09. ระบบ MIS / รายงานบริหาร</div><div class="addon-selling">Dashboard ผู้บริหาร, KPI, drill-down</div></div>
-        <div class="addon-price-mo">฿3,000</div>
+        <div class="addon-price-mo">฿4,100</div>
         <div class="addon-point">ตัดสินใจได้ทันที</div>
       </div>
       <div class="addon-card" data-name="09. ระบบ MIS / รายงานบริหาร" onclick="openModal('mis')">
@@ -704,7 +622,7 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿3,000</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿4,100</div></div>
           </div>
           <span class="addon-card-arrow">→</span>
         </div>
@@ -712,7 +630,7 @@
 
       <div class="addon-row" data-name="10. ระบบการลงทุน" onclick="openModal('invest')">
         <div><div class="addon-name">10. ระบบการลงทุน</div><div class="addon-selling">Portfolio, ผลตอบแทน, ความเสี่ยง</div></div>
-        <div class="addon-price-mo">฿2,500</div>
+        <div class="addon-price-mo">฿3,800</div>
         <div class="addon-point">บริหารสินทรัพย์อย่างมืออาชีพ</div>
       </div>
       <div class="addon-card" data-name="10. ระบบการลงทุน" onclick="openModal('invest')">
@@ -721,7 +639,7 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿2,500</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿3,800</div></div>
           </div>
           <span class="addon-card-arrow">→</span>
         </div>
@@ -729,7 +647,7 @@
 
       <div class="addon-row" data-name="11. ระบบติดตามหนี้" onclick="openModal('debt')">
         <div><div class="addon-name">11. ระบบติดตามหนี้</div><div class="addon-selling">Alert, SMS/email, รายงาน NPL</div></div>
-        <div class="addon-price-mo">฿1,250</div>
+        <div class="addon-price-mo">฿3,600</div>
         <div class="addon-point">ลด NPL อย่างมีระบบ</div>
       </div>
       <div class="addon-card" data-name="11. ระบบติดตามหนี้" onclick="openModal('debt')">
@@ -738,15 +656,15 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,250</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿3,600</div></div>
           </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+          <span class="addon-card-arrow">→</span>
         </div>
       </div>
 
       <div class="addon-row" data-name="13. ระบบรักษาความปลอดภัย" onclick="openModal('security')">
         <div><div class="addon-name">13. ระบบรักษาความปลอดภัย</div><div class="addon-selling">Role-based access, audit log</div></div>
-        <div class="addon-price-mo">฿850</div>
+        <div class="addon-price-mo">฿2,700</div>
         <div class="addon-point">ปกป้องข้อมูลสมาชิก</div>
       </div>
       <div class="addon-card" data-name="13. ระบบรักษาความปลอดภัย" onclick="openModal('security')">
@@ -755,54 +673,20 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿850</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿2,700</div></div>
           </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+          <span class="addon-card-arrow">→</span>
         </div>
       </div>
 
       <div class="addon-row" data-name="14. ระบบสำรองข้อมูล" onclick="openModal('backup')">
         <div><div class="addon-name">14. ระบบสำรองข้อมูล</div><div class="addon-selling">Auto-backup, restore, scheduling</div></div>
-        <div class="addon-price-mo">฿750</div>
+        <div class="addon-price-mo">฿2,000</div>
         <div class="addon-point">ไม่สูญเสียข้อมูล</div>
       </div>
       <div class="addon-card" data-name="14. ระบบสำรองข้อมูล" onclick="openModal('backup')">
         <div class="addon-card-top">
           <div><div class="addon-name">14. ระบบสำรองข้อมูล</div><div class="addon-selling">Auto-backup, restore, scheduling</div></div>
-        </div>
-        <div class="addon-card-footer">
-          <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿750</div></div>
-          </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
-        </div>
-      </div>
-
-      <div class="addon-row" data-name="18. Pay-in Slip" onclick="openModal('payin')">
-        <div><div class="addon-name">18. Pay-in Slip</div><div class="addon-selling">QR ชำระเงิน, reconcile อัตโนมัติ</div></div>
-        <div class="addon-price-mo">฿750</div>
-        <div class="addon-point">ชำระสะดวก ตัดงาน Manual</div>
-      </div>
-      <div class="addon-card" data-name="18. Pay-in Slip" onclick="openModal('payin')">
-        <div class="addon-card-top">
-          <div><div class="addon-name">18. Pay-in Slip</div><div class="addon-selling">QR ชำระเงิน, reconcile อัตโนมัติ</div></div>
-        </div>
-        <div class="addon-card-footer">
-          <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿750</div></div>
-          </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
-        </div>
-      </div>
-
-      <div class="addon-row" data-name="19. ระบบเชื่อมโยงข้อมูล" onclick="openModal('integration')">
-        <div><div class="addon-name">19. ระบบเชื่อมโยงข้อมูล</div><div class="addon-selling">API / Data Integration ภายนอก</div></div>
-        <div class="addon-price-mo">฿2,000</div>
-        <div class="addon-point">เชื่อม GFMIS, ธนาคาร</div>
-      </div>
-      <div class="addon-card" data-name="19. ระบบเชื่อมโยงข้อมูล" onclick="openModal('integration')">
-        <div class="addon-card-top">
-          <div><div class="addon-name">19. ระบบเชื่อมโยงข้อมูล</div><div class="addon-selling">API / Data Integration ภายนอก</div></div>
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
@@ -812,9 +696,94 @@
         </div>
       </div>
 
-      <div class="addon-row" data-name="20. ระบบสารบรรณ / คลังเอกสาร" onclick="openModal('doc')">
-        <div><div class="addon-name">20. ระบบสารบรรณ / คลังเอกสาร</div><div class="addon-selling">e-Document, ค้นหา,หมวดหมู่</div></div>
+      <div class="addon-row" data-name="15. Web Portal (บริการสมาชิก)" onclick="openModal('web-portal')">
+        <div><div class="addon-name">15. Web Portal (บริการสมาชิก)</div><div class="addon-selling">Self-service, ยื่นกู้ออนไลน์, e-Statement</div></div>
+        <div class="addon-price-mo">฿3,600</div>
+        <div class="addon-point">ลดภาระเจ้าหน้าที่ 60%</div>
+      </div>
+      <div class="addon-card" data-name="15. Web Portal (บริการสมาชิก)" onclick="openModal('web-portal')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">15. Web Portal (บริการสมาชิก)</div><div class="addon-selling">Self-service, ยื่นกู้ออนไลน์, e-Statement</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿3,600</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="16. Mobile Application" onclick="openModal('mobile-app')">
+        <div><div class="addon-name">16. Mobile Application</div><div class="addon-selling">Biometric login, Push, QR payment</div></div>
+        <div class="addon-price-mo">฿5,300</div>
+        <div class="addon-point">เข้าถึงได้ทุกที่ทุกเวลา</div>
+      </div>
+      <div class="addon-card" data-name="16. Mobile Application" onclick="openModal('mobile-app')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">16. Mobile Application</div><div class="addon-selling">Biometric login, Push, QR payment</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿5,300</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="17. Line Notification" onclick="openModal('line-notify')">
+        <div><div class="addon-name">17. Line Notification</div><div class="addon-selling">แจ้งเตือนอัตโนมัติ, OTP ผ่าน LINE</div></div>
+        <div class="addon-price-mo">฿2,200</div>
+        <div class="addon-point">ลด Inbound Call ทันที</div>
+      </div>
+      <div class="addon-card" data-name="17. Line Notification" onclick="openModal('line-notify')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">17. Line Notification</div><div class="addon-selling">แจ้งเตือนอัตโนมัติ, OTP ผ่าน LINE</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿2,200</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="18. Pay-in Slip" onclick="openModal('payin')">
+        <div><div class="addon-name">18. Pay-in Slip</div><div class="addon-selling">QR ชำระเงิน, reconcile อัตโนมัติ</div></div>
         <div class="addon-price-mo">฿1,200</div>
+        <div class="addon-point">ชำระสะดวก ตัดงาน Manual</div>
+      </div>
+      <div class="addon-card" data-name="18. Pay-in Slip" onclick="openModal('payin')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">18. Pay-in Slip</div><div class="addon-selling">QR ชำระเงิน, reconcile อัตโนมัติ</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,200</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="19. ระบบเชื่อมโยงข้อมูล" onclick="openModal('integration')">
+        <div><div class="addon-name">19. ระบบเชื่อมโยงข้อมูล</div><div class="addon-selling">API / Data Integration ภายนอก</div></div>
+        <div class="addon-price-mo">฿5,000</div>
+        <div class="addon-point">เชื่อม GFMIS, ธนาคาร</div>
+      </div>
+      <div class="addon-card" data-name="19. ระบบเชื่อมโยงข้อมูล" onclick="openModal('integration')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">19. ระบบเชื่อมโยงข้อมูล</div><div class="addon-selling">API / Data Integration ภายนอก</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿5,000</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="20. ระบบสารบรรณ / คลังเอกสาร" onclick="openModal('doc')">
+        <div><div class="addon-name">20. ระบบสารบรรณ / คลังเอกสาร</div><div class="addon-selling">e-Document, ค้นหา, หมวดหมู่</div></div>
+        <div class="addon-price-mo">฿2,200</div>
         <div class="addon-point">Paperless สมบูรณ์</div>
       </div>
       <div class="addon-card" data-name="20. ระบบสารบรรณ / คลังเอกสาร" onclick="openModal('doc')">
@@ -823,71 +792,20 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,200</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿2,200</div></div>
           </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+          <span class="addon-card-arrow">→</span>
         </div>
       </div>
 
       <div class="addon-row" data-name="21. ระบบบริหารงานบุคคล" onclick="openModal('hr')">
         <div><div class="addon-name">21. ระบบบริหารงานบุคคล</div><div class="addon-selling">HR, เงินเดือน, ประวัติพนักงาน</div></div>
-        <div class="addon-price-mo">฿1,500</div>
+        <div class="addon-price-mo">฿1,700</div>
         <div class="addon-point">ครบ HR ในที่เดียว</div>
       </div>
       <div class="addon-card" data-name="21. ระบบบริหารงานบุคคล" onclick="openModal('hr')">
         <div class="addon-card-top">
           <div><div class="addon-name">21. ระบบบริหารงานบุคคล</div><div class="addon-selling">HR, เงินเดือน, ประวัติพนักงาน</div></div>
-        </div>
-        <div class="addon-card-footer">
-          <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,500</div></div>
-          </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
-        </div>
-      </div>
-
-      <div class="addon-row" data-name="22. ระบบพัสดุ / สินทรัพย์" onclick="openModal('asset')">
-        <div><div class="addon-name">22. ระบบพัสดุ / สินทรัพย์</div><div class="addon-selling">ทะเบียนพัสดุ, ตัดจำหน่าย</div></div>
-        <div class="addon-price-mo">฿1,000</div>
-        <div class="addon-point">ควบคุมสินทรัพย์ครบ</div>
-      </div>
-      <div class="addon-card" data-name="22. ระบบพัสดุ / สินทรัพย์" onclick="openModal('asset')">
-        <div class="addon-card-top">
-          <div><div class="addon-name">22. ระบบพัสดุ / สินทรัพย์</div><div class="addon-selling">ทะเบียนพัสดุ, ตัดจำหน่าย</div></div>
-        </div>
-        <div class="addon-card-footer">
-          <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,000</div></div>
-          </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
-        </div>
-      </div>
-
-      <div class="addon-row" data-name="23. ระบบงบประมาณ" onclick="openModal('budget')">
-        <div><div class="addon-name">23. ระบบงบประมาณ</div><div class="addon-selling">วางแผน, ควบคุม, เปรียบเทียบ</div></div>
-        <div class="addon-price-mo">฿1,350</div>
-        <div class="addon-point">ควบคุมค่าใช้จ่าย</div>
-      </div>
-      <div class="addon-card" data-name="23. ระบบงบประมาณ" onclick="openModal('budget')">
-        <div class="addon-card-top">
-          <div><div class="addon-name">23. ระบบงบประมาณ</div><div class="addon-selling">วางแผน, ควบคุม, เปรียบเทียบ</div></div>
-        </div>
-        <div class="addon-card-footer">
-          <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,350</div></div>
-          </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
-        </div>
-      </div>
-
-      <div class="addon-row" data-name="24. ระบบอนุมัติ (Workflow)" onclick="openModal('workflow')">
-        <div><div class="addon-name">24. ระบบอนุมัติ (Workflow)</div><div class="addon-selling">Paperless approval, หลายระดับ</div></div>
-        <div class="addon-price-mo">฿1,700</div>
-        <div class="addon-point">ลดขั้นตอน 80%</div>
-      </div>
-      <div class="addon-card" data-name="24. ระบบอนุมัติ (Workflow)" onclick="openModal('workflow')">
-        <div class="addon-card-top">
-          <div><div class="addon-name">24. ระบบอนุมัติ (Workflow)</div><div class="addon-selling">Paperless approval, หลายระดับ</div></div>
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
@@ -897,9 +815,60 @@
         </div>
       </div>
 
+      <div class="addon-row" data-name="22. ระบบพัสดุ / สินทรัพย์" onclick="openModal('asset')">
+        <div><div class="addon-name">22. ระบบพัสดุ / สินทรัพย์</div><div class="addon-selling">ทะเบียนทรัพย์สิน, ค่าเสื่อมราคา</div></div>
+        <div class="addon-price-mo">฿2,100</div>
+        <div class="addon-point">จัดการทรัพย์สินอย่างเป็นระบบ</div>
+      </div>
+      <div class="addon-card" data-name="22. ระบบพัสดุ / สินทรัพย์" onclick="openModal('asset')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">22. ระบบพัสดุ / สินทรัพย์</div><div class="addon-selling">ทะเบียนทรัพย์สิน, ค่าเสื่อมราคา</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿2,100</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="23. ระบบงบประมาณ" onclick="openModal('budget')">
+        <div><div class="addon-name">23. ระบบงบประมาณ</div><div class="addon-selling">วางแผน, ควบคุม, เปรียบเทียบ</div></div>
+        <div class="addon-price-mo">฿2,300</div>
+        <div class="addon-point">ควบคุมค่าใช้จ่าย</div>
+      </div>
+      <div class="addon-card" data-name="23. ระบบงบประมาณ" onclick="openModal('budget')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">23. ระบบงบประมาณ</div><div class="addon-selling">วางแผน, ควบคุม, เปรียบเทียบ</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿2,300</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="addon-row" data-name="24. ระบบอนุมัติ (Workflow)" onclick="openModal('workflow')">
+        <div><div class="addon-name">24. ระบบอนุมัติ (Workflow)</div><div class="addon-selling">Paperless approval, หลายระดับ</div></div>
+        <div class="addon-price-mo">฿1,800</div>
+        <div class="addon-point">ลดขั้นตอน 80%</div>
+      </div>
+      <div class="addon-card" data-name="24. ระบบอนุมัติ (Workflow)" onclick="openModal('workflow')">
+        <div class="addon-card-top">
+          <div><div class="addon-name">24. ระบบอนุมัติ (Workflow)</div><div class="addon-selling">Paperless approval, หลายระดับ</div></div>
+        </div>
+        <div class="addon-card-footer">
+          <div class="addon-card-prices">
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,800</div></div>
+          </div>
+          <span class="addon-card-arrow">→</span>
+        </div>
+      </div>
+
       <div class="addon-row" data-name="25. ระบบบริหารงานคดี" onclick="openModal('legal')">
         <div><div class="addon-name">25. ระบบบริหารงานคดี</div><div class="addon-selling">ติดตามคดี, นัดหมาย, เอกสาร</div></div>
-        <div class="addon-price-mo">฿1,350</div>
+        <div class="addon-price-mo">฿3,000</div>
         <div class="addon-point">ลดความเสี่ยงทางกฎหมาย</div>
       </div>
       <div class="addon-card" data-name="25. ระบบบริหารงานคดี" onclick="openModal('legal')">
@@ -908,15 +877,15 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,350</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿3,000</div></div>
           </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+          <span class="addon-card-arrow">→</span>
         </div>
       </div>
 
       <div class="addon-row" data-name="26. ระบบฌาปนกิจ" onclick="openModal('funeral')">
         <div><div class="addon-name">26. ระบบฌาปนกิจ</div><div class="addon-selling">บริหารสมาชิก, เรียกเก็บ</div></div>
-        <div class="addon-price-mo">฿1,100</div>
+        <div class="addon-price-mo">฿1,800</div>
         <div class="addon-point">สวัสดิการครบวงจร</div>
       </div>
       <div class="addon-card" data-name="26. ระบบฌาปนกิจ" onclick="openModal('funeral')">
@@ -925,15 +894,15 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,100</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,800</div></div>
           </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+          <span class="addon-card-arrow">→</span>
         </div>
       </div>
 
       <div class="addon-row" data-name="27. ระบบจัดการประชุม" onclick="openModal('meeting')">
         <div><div class="addon-name">27. ระบบจัดการประชุม</div><div class="addon-selling">วาระ, มติ, บันทึกการประชุม</div></div>
-        <div class="addon-price-mo">฿850</div>
+        <div class="addon-price-mo">฿1,300</div>
         <div class="addon-point">ประชุมออนไลน์ได้ทันที</div>
       </div>
       <div class="addon-card" data-name="27. ระบบจัดการประชุม" onclick="openModal('meeting')">
@@ -942,15 +911,15 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿850</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,300</div></div>
           </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+          <span class="addon-card-arrow">→</span>
         </div>
       </div>
 
       <div class="addon-row" data-name="28. ระบบจองคิว" onclick="openModal('queue')">
         <div><div class="addon-name">28. ระบบจองคิว</div><div class="addon-selling">Online booking, แจ้งเตือน</div></div>
-        <div class="addon-price-mo">฿670</div>
+        <div class="addon-price-mo">฿1,400</div>
         <div class="addon-point">ลดเวลารอคิว</div>
       </div>
       <div class="addon-card" data-name="28. ระบบจองคิว" onclick="openModal('queue')">
@@ -959,15 +928,15 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿670</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,400</div></div>
           </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+          <span class="addon-card-arrow">→</span>
         </div>
       </div>
 
       <div class="addon-row" data-name="29. ระบบเจ้าหน้าที่" onclick="openModal('staff')">
         <div><div class="addon-name">29. ระบบเจ้าหน้าที่</div><div class="addon-selling">บัญชีผู้ใช้, สิทธิ์, shift</div></div>
-        <div class="addon-price-mo">฿670</div>
+        <div class="addon-price-mo">฿1,300</div>
         <div class="addon-point">จัดการทีมงานครบ</div>
       </div>
       <div class="addon-card" data-name="29. ระบบเจ้าหน้าที่" onclick="openModal('staff')">
@@ -976,24 +945,24 @@
         </div>
         <div class="addon-card-footer">
           <div class="addon-card-prices">
-            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿670</div></div>
+            <div class="addon-card-price-item"><div class="acp-lbl">ต่อเดือน</div><div class="acp-val teal">฿1,300</div></div>
           </div>
-          <span class="addon-card-arrow" style="color:var(--text-muted)">·</span>
+          <span class="addon-card-arrow">→</span>
         </div>
       </div>
 
     </div><div class="summary-strip">
       <div class="strip-item">
         <div class="strip-label">จำนวน Add-on ทั้งหมด</div>
-        <div class="strip-val">17 ระบบ</div>
+        <div class="strip-val">21 ระบบ</div>
       </div>
       <div class="strip-item">
         <div class="strip-label">ราคาต่ำสุด</div>
-        <div class="strip-val teal">฿670 / เดือน</div>
+        <div class="strip-val teal">฿1,200 / เดือน</div>
       </div>
       <div class="strip-item">
         <div class="strip-label">ราคาสูงสุด</div>
-        <div class="strip-val gold">฿3,000 / เดือน</div>
+        <div class="strip-val gold">฿5,300 / เดือน</div>
       </div>
     </div>
   </section>
@@ -1012,10 +981,10 @@
   const modals = {
     'core-basic': {
       tag: 'Core Package',
-      title: 'ระบบหลักสหกรณ์ — 10 โมดูล',
-      desc: 'รากฐานสำคัญที่สหกรณ์ทุกแห่งต้องมี ครอบคลุมการดำเนินงานหลักครบถ้วน ตั้งแต่ทะเบียนสมาชิก หุ้น เงินฝาก สินเชื่อ ไปจนถึงบัญชีและปันผล',
+      title: 'ระบบหลักสหกรณ์ — 8 โมดูล',
+      desc: 'รากฐานสำคัญที่สหกรณ์ทุกแห่งต้องมี ครอบคลุมการดำเนินงานหลักครบถ้วน ตั้งแต่ทะเบียนสมาชิกและหุ้น เงินฝาก สินเชื่อ ไปจนถึงบัญชีและปันผล',
       monthly: '฿20,000',
-      features: ['ทะเบียนสมาชิก + อนุมัติ','ระบบหุ้น + ปันผล','เงินฝากหลายประเภท','สินเชื่อ + ค้ำประกัน','ระบบการเงิน','บัญชีครบวงจร','ประมวลผลหักเงินเดือน','สวัสดิการสมาชิก','ผู้ดูแลระบบ + สิทธิ์','ปันผล-เฉลี่ยคืน']
+      features: ['ทะเบียนสมาชิก + หุ้น','เงินฝากหลายประเภท','ระบบการเงิน','บัญชีครบวงจร','สินเชื่อ + ค้ำประกัน','ประมวลผลหักเงินเดือน','ปันผล-เฉลี่ยคืน','ผู้ดูแลระบบ + สิทธิ์']
     },
     'online-basic': {
       tag: 'Online Package',
@@ -1024,151 +993,151 @@
       monthly: '฿5,900',
       features: ['Web Portal — ดูข้อมูล/ยื่นคำขอ','Mobile App iOS + Android','Biometric Login','Push Notification','Line OA — แจ้งเตือนอัตโนมัติ','QR Code Payment','e-Statement ดาวน์โหลดได้','ยื่นกู้/สวัสดิการออนไลน์']
     },
-    'bundle': {
-      tag: 'Bundle Deal',
-      title: 'Core + Online — ประหยัด 11.6%',
-      desc: 'แพ็กเกจรวมที่คุ้มค่าที่สุด รวมทุกโมดูลใน Core (10 ระบบ) + Online ครบทั้ง 3 ช่องทาง ประหยัด ฿3,000 ต่อเดือน เทียบกับซื้อแยก (มูลค่ารวม ฿25,900)',
-      monthly: '฿22,900',
-      features: ['ครบทุกโมดูลใน Core Package','Web Portal สมาชิก','Mobile Application iOS+Android','Line Notification','ประหยัด ฿3,000/เดือน','Support & Maintenance รวม','ติดตั้งและ Setup ครบ','SLA Response Time 4 ชั่วโมง']
-    },
-    'mobile-app': {
-      tag: '16. Mobile Application',
-      title: 'Mobile Application',
-      desc: 'App บน iOS + Android พัฒนาด้วย Cross-platform framework รองรับ Biometric login, Push notification และ QR payment',
-      monthly: '฿3,350',
-      features: ['เข้าสู่ระบบ / Face ID / Fingerprint', 'แสดงยอดคงเหลือภาพรวม', 'ยื่นกู้ผ่าน Mobile', 'ดูประวัติรายการ', 'การแจ้งเตือน (Push)', 'สลิปอิเล็กทรอนิกส์ / QR', 'ยื่นสวัสดิการผ่าน Mobile']
-    },
-    'web-portal': {
-      tag: '15. Web Portal',
-      title: 'Member Web Portal',
-      desc: 'เว็บ Self-service สำหรับสมาชิก Login ด้วย OTP, ดูข้อมูล real-time, ยื่นคำขอออนไลน์ และดาวน์โหลดเอกสาร — ลดภาระ Staff ได้มากกว่า 60%',
-      monthly: '฿2,500',
-      features: ['เข้าสู่ระบบสำหรับสมาชิก', 'ตรวจสอบยอดคงเหลือ', 'ดูประวัติรายการ', 'ดูสถานะเงินกู้ / ตารางผ่อน', 'ยื่นกู้ออนไลน์', 'ดาวน์โหลดสลิป / ใบแจ้งยอด']
-    },
-    'line-notify': {
-      tag: '17. Line Notification',
-      title: 'Line Notification',
-      desc: 'ระบบแจ้งเตือนผ่าน Line OA อัตโนมัติ — Dev เร็ว ROI สูง ลด inbound call "ถามยอดชำระ" ได้ทันที เหมาะเป็น Quick Win สำหรับสหกรณ์',
-      monthly: '฿750',
-      features: ['แจ้งเตือนชำระผ่าน LINE', 'แจ้งรายการผ่าน LINE', 'ส่ง OTP ผ่าน LINE']
+    'welfare': {
+      tag: '08. Add-on',
+      title: '08. ระบบสวัสดิการ',
+      desc: 'บริหารจัดการสวัสดิการสมาชิกครบวงจร ตั้งแต่กำหนดประเภทสวัสดิการ ยื่นคำขอเบิก อนุมัติตามลำดับชั้น ไปจนถึงจ่ายเงินสวัสดิการ ครอบคลุมสวัสดิการเสียชีวิต สุขภาพ และการศึกษา',
+      monthly: '฿3,900',
+      features: ['กำหนดประเภทสวัสดิการ', 'ยื่นคำขอ / อนุมัติสวัสดิการ', 'สวัสดิการเสียชีวิต', 'สวัสดิการสุขภาพ', 'สวัสดิการการศึกษา', 'จ่ายเงินสวัสดิการ']
     },
     'mis': {
       tag: '09. Add-on',
-      title: 'ระบบ MIS / รายงานบริหาร',
-      desc: 'Executive Dashboard สรุปภาพรวมสหกรณ์ วิเคราะห์ Portfolio เงินกู้และเงินฝาก รายงานสถิติสมาชิก ส่งออก Excel/PDF ได้ทันที',
-      monthly: '฿3,000',
-      features: ['Dashboard สรุปภาพรวม', 'รายงานสถิติสมาชิก', 'วิเคราะห์พอร์ตเงินกู้', 'วิเคราะห์พอร์ตเงินฝาก', 'ส่งออก Excel/PDF']
+      title: '09. ระบบ MIS / รายงานบริหาร',
+      desc: 'Executive Dashboard สรุปภาพรวมสหกรณ์ วิเคราะห์ Portfolio เงินกู้และเงินฝาก รายงานสถิติสมาชิก ส่งออก Excel/PDF/CSV ได้ทันที',
+      monthly: '฿4,100',
+      features: ['Dashboard สรุปภาพรวม', 'รายงานสถิติสมาชิก', 'วิเคราะห์พอร์ตเงินกู้', 'วิเคราะห์พอร์ตเงินฝาก', 'ส่งออก Excel/PDF/CSV']
     },
     'invest': {
       tag: '10. Add-on',
-      title: 'ระบบการลงทุน',
-      desc: 'บริหารพอร์ตการลงทุนของสหกรณ์ บันทึกรายการ คำนวณผลตอบแทน ติดตาม Portfolio รายงานผลตอบแทนรายปี',
-      monthly: '฿2,500',
+      title: '10. ระบบการลงทุน',
+      desc: 'บริหารพอร์ตการลงทุนของสหกรณ์ กำหนดประเภทการลงทุน บันทึกรายการ คำนวณผลตอบแทน ติดตาม Portfolio และรายงานผลตอบแทนรายปี',
+      monthly: '฿3,800',
       features: ['กำหนดประเภทการลงทุน', 'บันทึกรายการลงทุน', 'คำนวณผลตอบแทน', 'ติดตามพอร์ตการลงทุน', 'รายงานการลงทุน']
     },
     'debt': {
       tag: '11. Add-on',
-      title: 'ระบบติดตามหนี้',
-      desc: 'ระบบ Alert อัตโนมัติสำหรับสมาชิกที่ค้างชำระ ส่ง SMS/Email แจ้งเตือน จัดทำรายงาน NPL และติดตามหนี้อย่างเป็นระบบ ลดหนี้เสียอย่างมีประสิทธิภาพ',
-      monthly: '฿1,250',
+      title: '11. ระบบติดตามหนี้',
+      desc: 'ระบบ Alert อัตโนมัติสำหรับสมาชิกที่ค้างชำระ กำหนดตารางและผู้ติดตามหนี้ พิมพ์หนังสือบอกกล่าว ปรับโครงสร้างหนี้ และบันทึกประวัติการติดตาม',
+      monthly: '฿3,600',
       features: ['ติดตามหนี้ค้างชำระ', 'กำหนดตารางและผู้ติดตามหนี้', 'พิมพ์หนังสือบอกกล่าว', 'ปรับโครงสร้างหนี้', 'บันทึกประวัติการติดตาม']
     },
     'security': {
       tag: '13. Add-on',
-      title: 'ระบบรักษาความปลอดภัย',
-      desc: 'ควบคุมการเข้าถึงระบบด้วย Role-based Access Control บันทึก Audit Log ทุก Action และตรวจจับพฤติกรรมผิดปกติ ปกป้องข้อมูลสมาชิกอย่างรัดกุม',
-      monthly: '฿850',
+      title: '13. ระบบรักษาความปลอดภัย',
+      desc: 'ควบคุมการเข้าถึงระบบด้วยนโยบายรหัสผ่านและการจำกัดการล็อกอิน กำหนดหมดเวลาการใช้งาน และยืนยันตัวตน 2 ขั้นตอน (OTP) ปกป้องข้อมูลสมาชิกอย่างรัดกุม',
+      monthly: '฿2,700',
       features: ['นโยบายรหัสผ่าน', 'จำกัดการล็อกอิน', 'หมดเวลาการใช้งาน', 'ยืนยันตัวตน 2 ขั้น (OTP)']
     },
     'backup': {
       tag: '14. Add-on',
-      title: 'ระบบสำรองข้อมูล',
-      desc: 'สำรองข้อมูลอัตโนมัติตามกำหนดเวลา จัดเก็บไว้หลายที่ทั้ง Local และ Cloud กู้คืนข้อมูลได้รวดเร็ว ไม่ให้สูญเสียข้อมูลสำคัญของสหกรณ์แม้แต่รายการเดียว',
-      monthly: '฿750',
+      title: '14. ระบบสำรองข้อมูล',
+      desc: 'สำรองข้อมูลอัตโนมัติตามกำหนดเวลา รองรับการสำรองข้อมูลด้วยตนเอง และกู้คืนข้อมูลได้รวดเร็ว ไม่ให้สูญเสียข้อมูลสำคัญของสหกรณ์แม้แต่รายการเดียว',
+      monthly: '฿2,000',
       features: ['สำรองข้อมูลอัตโนมัติ', 'สำรองข้อมูลด้วยตนเอง', 'กู้คืนข้อมูล']
+    },
+    'web-portal': {
+      tag: '15. Add-on',
+      title: '15. Web Portal (บริการสมาชิก)',
+      desc: 'เว็บ Self-service สำหรับสมาชิก Login เข้าดูข้อมูล real-time ตรวจสอบยอดคงเหลือ ดูสถานะเงินกู้ ยื่นกู้ออนไลน์ และดาวน์โหลดสลิป/ใบแจ้งยอด ลดภาระ Staff ได้มากกว่า 60%',
+      monthly: '฿3,600',
+      features: ['เข้าสู่ระบบสำหรับสมาชิก', 'ตรวจสอบยอดคงเหลือ', 'ดูประวัติรายการ', 'ดูสถานะเงินกู้ / ตารางผ่อน', 'ยื่นกู้ออนไลน์', 'ดาวน์โหลดสลิป / ใบแจ้งยอด']
+    },
+    'mobile-app': {
+      tag: '16. Add-on',
+      title: '16. Mobile Application',
+      desc: 'App บน iOS + Android รองรับ Biometric login แสดงยอดคงเหลือภาพรวม ยื่นกู้ผ่าน Mobile รับการแจ้งเตือนแบบ Push และสลิปอิเล็กทรอนิกส์/QR เข้าถึงบริการสหกรณ์ได้ทุกที่ทุกเวลา',
+      monthly: '฿5,300',
+      features: ['เข้าสู่ระบบ / Face ID / Fingerprint', 'แสดงยอดคงเหลือภาพรวม', 'ยื่นกู้ผ่าน Mobile', 'ดูประวัติรายการ', 'การแจ้งเตือน (Push)', 'สลิปอิเล็กทรอนิกส์ / QR', 'ยื่นสวัสดิการผ่าน Mobile']
+    },
+    'line-notify': {
+      tag: '17. Add-on',
+      title: '17. Line Notification',
+      desc: 'ระบบแจ้งเตือนผ่าน Line OA อัตโนมัติ — Dev เร็ว ROI สูง ลด inbound call "ถามยอดชำระ" ได้ทันที เหมาะเป็น Quick Win สำหรับสหกรณ์',
+      monthly: '฿2,200',
+      features: ['แจ้งเตือนชำระผ่าน LINE', 'แจ้งรายการผ่าน LINE', 'ส่ง OTP ผ่าน LINE']
     },
     'payin': {
       tag: '18. Add-on',
-      title: 'Pay-in Slip',
+      title: '18. Pay-in Slip',
       desc: 'รับชำระเงินผ่าน QR Code PromptPay สร้างสลิปอัตโนมัติ และ Reconcile กับระบบบัญชีโดยอัตโนมัติ ลดงาน Manual ของเจ้าหน้าที่การเงิน',
-      monthly: '฿750',
+      monthly: '฿1,200',
       features: ['สร้าง Pay-in slip', 'พิมพ์ใบ Pay-in']
     },
     'integration': {
       tag: '19. Add-on',
-      title: 'ระบบเชื่อมโยงข้อมูล',
+      title: '19. ระบบเชื่อมโยงข้อมูล',
       desc: 'เชื่อมต่อระบบภายนอกผ่าน API — GFMIS สำหรับราชการ, รับ/ส่งไฟล์ธนาคาร เหมาะสำหรับหน่วยงานภาครัฐ',
-      monthly: '฿2,000',
+      monthly: '฿5,000',
       features: ['เชื่อมต่อ GFMIS', 'รับ/ส่งไฟล์ธนาคาร']
     },
     'doc': {
       tag: '20. Add-on',
-      title: 'ระบบสารบรรณ / คลังเอกสาร',
+      title: '20. ระบบสารบรรณ / คลังเอกสาร',
       desc: 'จัดเก็บและบริหารเอกสารราชการ หนังสือเข้า-ออก สัญญาต่างๆ แบบดิจิทัล ค้นหาง่าย จัดหมวดหมู่เป็นระเบียบ รองรับ Paperless Organization เต็มรูปแบบ',
-      monthly: '฿1,200',
+      monthly: '฿2,200',
       features: ['จัดเก็บ/จำแนกประเภทเอกสาร', 'ค้นหาเอกสาร', 'เวียนเอกสาร']
     },
     'hr': {
       tag: '21. Add-on',
-      title: 'ระบบบริหารงานบุคคล',
-      desc: 'จัดการข้อมูลพนักงานและเจ้าหน้าที่สหกรณ์ครบวงจร ตั้งแต่ประวัติส่วนตัว สัญญาจ้าง เงินเดือน ไปจนถึงการประเมินผลและสวัสดิการพนักงาน',
-      monthly: '฿1,500',
+      title: '21. ระบบบริหารงานบุคคล',
+      desc: 'จัดการข้อมูลพนักงานและเจ้าหน้าที่สหกรณ์ครบวงจร ตั้งแต่ประวัติส่วนตัว ตำแหน่ง/ระดับ ไปจนถึงการลา',
+      monthly: '฿1,700',
       features: ['ประวัติพนักงาน', 'ตำแหน่ง / ระดับ', 'การลา']
     },
     'asset': {
       tag: '22. Add-on',
-      title: 'ระบบพัสดุ / สินทรัพย์',
-      desc: 'บันทึกและติดตามสินทรัพย์ถาวรและพัสดุของสหกรณ์ คำนวณค่าเสื่อมราคา บันทึกการซ่อมบำรุง และดำเนินการตัดจำหน่ายตามระเบียบ',
-      monthly: '฿1,000',
+      title: '22. ระบบพัสดุ / สินทรัพย์',
+      desc: 'บันทึกและติดตามสินทรัพย์ถาวรและพัสดุของสหกรณ์ ตั้งแต่ใบขอซื้อ/ใบสั่งซื้อ ทะเบียนสินทรัพย์ ไปจนถึงคำนวณค่าเสื่อมราคา',
+      monthly: '฿2,100',
       features: ['ใบขอซื้อ / ใบสั่งซื้อ', 'ทะเบียนสินทรัพย์', 'ค่าเสื่อมราคา']
     },
     'budget': {
       tag: '23. Add-on',
-      title: 'ระบบงบประมาณ',
-      desc: 'วางแผนและควบคุมงบประมาณประจำปีของสหกรณ์ เปรียบเทียบงบประมาณกับค่าใช้จ่ายจริง แจ้งเตือนเมื่อใกล้เกินงบ ช่วยให้ผู้บริหารตัดสินใจได้แม่นยำ',
-      monthly: '฿1,350',
+      title: '23. ระบบงบประมาณ',
+      desc: 'วางแผนและควบคุมงบประมาณประจำปีของสหกรณ์ จัดสรรงบประมาณตามหน่วยงาน เปรียบเทียบงบประมาณกับค่าใช้จ่ายจริง ช่วยให้ผู้บริหารตัดสินใจได้แม่นยำ',
+      monthly: '฿2,300',
       features: ['วางแผนงบประมาณประจำปี', 'จัดสรรงบประมาณตามหน่วยงาน', 'ติดตามงบประมาณเทียบผลจริง']
     },
     'workflow': {
       tag: '24. Add-on',
-      title: 'ระบบอนุมัติ (Workflow)',
-      desc: 'ระบบ Paperless approval หลายระดับ — ผู้ยื่น → หัวหน้างาน → ผู้บริหาร → คณะกรรมการ แจ้งเตือนผ่าน Email/Line ทุกขั้นตอน',
-      monthly: '฿1,700',
+      title: '24. ระบบอนุมัติ (Workflow)',
+      desc: 'ระบบ Paperless approval หลายระดับ — ผู้ยื่น → หัวหน้างาน → ผู้บริหาร → คณะกรรมการ แจ้งเตือนและติดตามการอนุมัติทุกขั้นตอน',
+      monthly: '฿1,800',
       features: ['อนุมัติหลายระดับ', 'แจ้งเตือนและติดตามการอนุมัติ']
     },
     'legal': {
       tag: '25. Add-on',
-      title: 'ระบบบริหารงานคดี',
-      desc: 'ติดตามและบริหารจัดการคดีความที่สหกรณ์เกี่ยวข้อง บันทึกรายละเอียดคดี กำหนดนัดหมายศาล จัดเก็บเอกสารสำคัญ ลดความเสี่ยงด้านกฎหมาย',
-      monthly: '฿1,350',
+      title: '25. ระบบบริหารงานคดี',
+      desc: 'ติดตามและบริหารจัดการคดีความที่สหกรณ์เกี่ยวข้อง ลงทะเบียนและติดตามคดี จัดการเอกสารคดี และติดตามการบังคับคดี ลดความเสี่ยงด้านกฎหมาย',
+      monthly: '฿3,000',
       features: ['ลงทะเบียนและติดตามคดี', 'จัดการเอกสารคดี', 'ติดตามการบังคับคดี']
     },
     'funeral': {
       tag: '26. Add-on',
-      title: 'ระบบฌาปนกิจ',
-      desc: 'บริหารจัดการสมาคมฌาปนกิจสงเคราะห์ที่เชื่อมต่อกับสหกรณ์ จัดการทะเบียนสมาชิก เรียกเก็บเงินสงเคราะห์ และดำเนินการจ่ายเงินสงเคราะห์เมื่อสมาชิกเสียชีวิต',
-      monthly: '฿1,100',
+      title: '26. ระบบฌาปนกิจ',
+      desc: 'บริหารจัดการสมาคมฌาปนกิจสงเคราะห์ที่เชื่อมต่อกับสหกรณ์ จัดการทะเบียนสมาชิกฌาปนกิจ เก็บเงินสงเคราะห์ และดำเนินการเบิกเงินเมื่อสมาชิกเสียชีวิต',
+      monthly: '฿1,800',
       features: ['ทะเบียนสมาชิกฌาปนกิจ', 'เก็บเงินสงเคราะห์ / เบิกเงินเสียชีวิต']
     },
     'meeting': {
       tag: '27. Add-on',
-      title: 'ระบบจัดการประชุม',
-      desc: 'บริหารการประชุมของสหกรณ์ตั้งแต่ต้นจนจบ นัดหมาย จัดวาระ บันทึกมติ และติดตามการดำเนินการตามมติ รองรับประชุมออนไลน์และออฟไลน์',
-      monthly: '฿850',
+      title: '27. ระบบจัดการประชุม',
+      desc: 'บริหารการประชุมของสหกรณ์ตั้งแต่ต้นจนจบ จัดการวาระการประชุม บันทึกและติดตามมติที่ประชุม รองรับประชุมออนไลน์และออฟไลน์',
+      monthly: '฿1,300',
       features: ['จัดการวาระการประชุม', 'บันทึกและติดตามมติที่ประชุม']
     },
     'queue': {
       tag: '28. Add-on',
-      title: 'ระบบจองคิว',
-      desc: 'สมาชิกจองคิวรับบริการล่วงหน้าผ่านออนไลน์ ลดเวลารอ ระบบแจ้งเตือนก่อนถึงคิว เจ้าหน้าที่เรียกคิวผ่านหน้าจอ เพิ่มประสบการณ์การรับบริการที่ดีขึ้น',
-      monthly: '฿670',
+      title: '28. ระบบจองคิว',
+      desc: 'สมาชิกจองคิว/นัดหมายรับบริการล่วงหน้าผ่านออนไลน์ ลดเวลารอ พร้อมระบบแจ้งสถานะคิวก่อนถึงคิว เพิ่มประสบการณ์การรับบริการที่ดีขึ้น',
+      monthly: '฿1,400',
       features: ['จองคิว / นัดหมายออนไลน์', 'แจ้งสถานะคิว']
     },
     'staff': {
       tag: '29. Add-on',
-      title: 'ระบบเจ้าหน้าที่',
-      desc: 'จัดการบัญชีผู้ใช้งานระบบสำหรับเจ้าหน้าที่ทุกระดับ กำหนดสิทธิ์การเข้าถึง บันทึก Shift การทำงาน และติดตามประสิทธิภาพการทำงานของทีม',
-      monthly: '฿670',
+      title: '29. ระบบเจ้าหน้าที่',
+      desc: 'จัดการบัญชีผู้ใช้งานระบบสำหรับเจ้าหน้าที่ทุกระดับ กำหนดประวัติเจ้าหน้าที่/สิทธิ์เข้าใช้ และมอบหมายงานได้อย่างเป็นระบบ',
+      monthly: '฿1,300',
       features: ['ประวัติเจ้าหน้าที่ / สิทธิ์เข้าใช้', 'มอบหมายงาน']
     }
   };
